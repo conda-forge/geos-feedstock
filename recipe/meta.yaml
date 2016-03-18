@@ -16,7 +16,9 @@ requirements:
         - msinttypes  # [win]
     run:
 
-test: []
+test:
+    commands:
+        - geos-config --version  # [not win]
 
 about:
     home: http://trac.osgeo.org/geos/
