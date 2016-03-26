@@ -17,4 +17,5 @@ CFLAGS=${ARCH} CPPFLAGS=${ARCH} CXXFLAGS=${ARCH} LDFLAGS=${ARCH} FFLAGS=${ARCH} 
     ./configure --prefix=$PREFIX --without-jni
 
 make
+make check
 make install

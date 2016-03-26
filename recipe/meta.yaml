@@ -1,20 +1,27 @@
+{% set version = "3.4.2" %}
+
 package:
     name: geos
-    version: "3.4.2"
+    version: {{ version }}
 
 source:
-    fn:  geos-3.4.2.tar.bz2
-    url: http://download.osgeo.org/geos/geos-3.4.2.tar.bz2
+    fn:  geos-{{ version }}.tar.bz2
+    url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
     patches:
         - cmake.win.patch  # [win]
 
 build:
-    number: 0
+    skip: True  # [py35 and win]
+    number: 1
+    features:
+        - vc9  # [win and py27]
+        - vc10  # [win and py34]
+        - vc14  # [win and py35]
 
 requirements:
     build:
+        - python  # [win]
         - msinttypes  # [win]
-    run:
 
 test:
     commands:
@@ -23,7 +30,7 @@ test:
 about:
     home: http://trac.osgeo.org/geos/
     license: LGPL
-    summary: 'Geometry Engine - Open Source'
+    summary: Geometry Engine - Open Source
 
 extra:
   recipe-maintainers:
