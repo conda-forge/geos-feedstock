@@ -9,9 +9,13 @@ source:
     url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
     patches:
         - cmake.win.patch  # [win]
+        - lineintersector.patch  # [win and py35]
+        - wktwriter.patch  # [win and py35]
+        - bufferopp.patch  # [win and py35]
+        - offsetcurvebuilder.patch  # [win and py35]
+        - offsetcurvesetbuilder.patch  # [win and py35]
 
 build:
-    skip: True  # [py35 and win]
     number: 1
     features:
         - vc9  # [win and py27]
@@ -36,3 +40,4 @@ extra:
   recipe-maintainers:
     - ocefpaf
     - pelson
+    - gillins
