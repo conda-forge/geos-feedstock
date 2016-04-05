@@ -1,0 +1,71 @@
+Index: src/operation/relate/RelateComputer.cpp
+===================================================================
+--- src/operation/relate/RelateComputer.cpp	(revision 3567)
++++ src/operation/relate/RelateComputer.cpp	(working copy)
+@@ -55,10 +55,8 @@
+ {
+ }
+ 
+-RelateComputer::~RelateComputer()
+-{
+-}
+ 
++
+ IntersectionMatrix*
+ RelateComputer::computeIM()
+ {
+Index: include/geos/geom/IntersectionMatrix.h
+===================================================================
+--- include/geos/geom/IntersectionMatrix.h	(revision 3567)
++++ include/geos/geom/IntersectionMatrix.h	(working copy)
+@@ -59,6 +59,7 @@
+ 	 * dimension values ('F').
+ 	 */
+ 	IntersectionMatrix();
++	~IntersectionMatrix() {};
+ 
+ 	/** \brief
+ 	 * Overriden constructor.
+Index: include/geos/geom/util/SineStarFactory.h
+===================================================================
+--- include/geos/geom/util/SineStarFactory.h	(revision 3567)
++++ include/geos/geom/util/SineStarFactory.h	(working copy)
+@@ -20,6 +20,8 @@
+ #define GEOS_UTIL_SINESTARFACTORY_H
+ 
+ #include <geos/export.h>
++#include <geos/geom/CoordinateSequence.h>
++#include <geos/geom/LinearRing.h>
+ 
+ #include <geos/util/GeometricShapeFactory.h> // for inheritance
+ 
+Index: include/geos/operation/relate/RelateComputer.h
+===================================================================
+--- include/geos/operation/relate/RelateComputer.h	(revision 3567)
++++ include/geos/operation/relate/RelateComputer.h	(working copy)
+@@ -27,7 +27,7 @@
+ #include <geos/algorithm/LineIntersector.h> // for RelateComputer composition
+ #include <geos/geomgraph/NodeMap.h> // for RelateComputer composition
+ #include <geos/geom/Coordinate.h> // for RelateComputer composition
+-
++#include <geos/geom/IntersectionMatrix.h>
+ #include <vector>
+ #include <memory>
+ 
+@@ -39,7 +39,6 @@
+ // Forward declarations
+ namespace geos {
+ 	namespace geom {
+-		class IntersectionMatrix;
+ 		class Geometry;
+ 	}
+ 	namespace geomgraph {
+@@ -75,7 +74,7 @@
+ class GEOS_DLL RelateComputer {
+ public:
+ 	RelateComputer(std::vector<geomgraph::GeometryGraph*> *newArg);
+-	~RelateComputer();
++	~RelateComputer(){};
+ 
+ 	geom::IntersectionMatrix* computeIM();
+ private:
