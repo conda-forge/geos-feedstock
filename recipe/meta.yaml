@@ -7,6 +7,7 @@ package:
 source:
     fn:  geos-{{ version }}.tar.bz2
     url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
+    md5: fc5df2d926eb7e67f988a43a92683bae
     patches:
         - cmake.win.patch  # [win]
         - lineintersector.patch  # [win and py35]
