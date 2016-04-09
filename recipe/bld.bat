@@ -1,14 +1,12 @@
-mkdir build
-cd build
+cmake -G "NMake Makefiles" ^
+      -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+      -D CMAKE_BUILD_TYPE=Release ^
+      .
+if errorlevel 1 exit 1
 
-set LIB=%LIBRARY_LIB%;%LIB%
-set LIBPATH=%LIBRARY_LIB%;%LIBPATH%
-set INCLUDE=%LIBRARY_INC%;%INCLUDE%
+nmake install
+if errorlevel 1 exit 1
 
-cmake .. -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% -DCMAKE_BUILD_TYPE=Release
-
-nmake install || exit 1
-
-copy ..\include\geos.h %LIBRARY_INC%\geos.h || exit 1
 copy lib\*.exp %LIBRARY_LIB%\ || exit 1
 copy lib\*.lib %LIBRARY_LIB%\ || exit 1
+copy include\geos.h %LIBRARY_INC%\geos.h || exit 1
