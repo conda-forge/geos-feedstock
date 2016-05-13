@@ -5,7 +5,7 @@ Home: http://trac.osgeo.org/geos/
 
 Package license: LGPL
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Geometry Engine - Open Source
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/geos-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/geos-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/geos-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/geos-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/geos-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/geos-feedstock/branch/master)
