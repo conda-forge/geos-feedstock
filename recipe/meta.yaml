@@ -15,9 +15,11 @@ source:
         - bufferopp.patch  # [win and py35]
         - offsetcurvebuilder.patch  # [win and py35]
         - offsetcurvesetbuilder.patch  # [win and py35]
+        # https://trac.osgeo.org/geos/ticket/299
+        - 299-patch.patch  # [osx]
 
 build:
-    number: 1
+    number: 2
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -31,6 +33,7 @@ requirements:
 test:
     commands:
         - geos-config --version  # [not win]
+        - conda inspect linkages -n _test geos  # [linux]
 
 about:
     home: http://trac.osgeo.org/geos/
