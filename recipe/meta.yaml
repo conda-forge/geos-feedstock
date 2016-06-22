@@ -27,6 +27,7 @@ requirements:
     build:
         - python  # [win]
         - msinttypes  # [win]
+        - toolchain
 
 test:
     commands:
