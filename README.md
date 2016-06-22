@@ -3,7 +3,7 @@ About geos
 
 Home: http://trac.osgeo.org/geos/
 
-Package license: LGPL
+Package license: LGPLv2.1
 
 Feedstock license: BSD 3-Clause
 
