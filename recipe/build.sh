@@ -1,20 +1,23 @@
 #!/bin/bash
 
+# FIXME: This is a hack to make sure the environment is activated.
+# The reason this is required is due to the conda-build issue
+# mentioned below.
+#
+# https://github.com/conda/conda-build/issues/910
+#
+source activate "${CONDA_DEFAULT_ENV}"
 
 # Problems with cartopy if the -m{32,64} flag is not defined.
 # See https://taskman.eionet.europa.eu/issues/14817.
+# - toolchain now defines this so we don't need to do anything
 
-MACHINE_TYPE=`uname -m`
-if [ ${MACHINE_TYPE} == 'x86_64' ]; then
-  ARCH="-m64"
-elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
-  ARCH="-m32"
-else
-  ARCH=""
+if [ "$(uname)" == "Darwin" ]
+then
+  export CXX="${CXX} -stdlib=libc++"
 fi
 
-CFLAGS=${ARCH} CPPFLAGS=${ARCH} CXXFLAGS=${ARCH} LDFLAGS=${ARCH} FFLAGS=${ARCH} \
-    ./configure --prefix=$PREFIX --without-jni
+./configure --prefix=$PREFIX
 
 make
 
