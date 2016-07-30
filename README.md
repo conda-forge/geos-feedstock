@@ -7,7 +7,7 @@ Package license: LGPLv2.1
 
 Feedstock license: BSD 3-Clause
 
-Summary: Geometry Engine - Open Source
+Summary: Geometry Engine - Open Source.
 
 
 
