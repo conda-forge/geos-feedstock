@@ -1,29 +1,39 @@
 #!/bin/bash
 
-# FIXME: This is a hack to make sure the environment is activated.
-# The reason this is required is due to the conda-build issue
-# mentioned below.
-#
-# https://github.com/conda/conda-build/issues/910
-#
-source activate "${CONDA_DEFAULT_ENV}"
-
-# Problems with cartopy if the -m{32,64} flag is not defined.
-# See https://taskman.eionet.europa.eu/issues/14817.
-# - toolchain now defines this so we don't need to do anything
-
-if [ "$(uname)" == "Darwin" ]
-then
-  export CXX="${CXX} -stdlib=libc++"
+ARCH=""
+MACHINE_TYPE=$(uname -m)
+if [ ${MACHINE_TYPE} == 'x86_64' ]; then
+  ARCH="-m64"
+elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
+  ARCH="-m32"
 fi
+
+if [ $(uname) == Darwin ]; then
+    export CC=clang
+    export CXX=clang++
+    export MACOSX_DEPLOYMENT_TARGET="10.9"
+    export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
+    export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
+fi
+
 
 ./configure --prefix=$PREFIX
 
 make
-
 # Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/119038524
+# FAIL: geos_unit
+# ============================================================================
+# Testsuite summary for
+# ============================================================================
+# # TOTAL: 1
+# # PASS:  0
+# # SKIP:  0
+# # XFAIL: 0
+# # FAIL:  1
+# # XPASS: 0
+# # ERROR: 0
 if [[ $(uname) == Linux ]]; then
-    make check
+  make check
 fi
 
 make install
