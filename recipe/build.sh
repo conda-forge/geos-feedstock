@@ -20,20 +20,5 @@ fi
 ./configure --prefix=$PREFIX
 
 make
-# Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/119038524
-# FAIL: geos_unit
-# ============================================================================
-# Testsuite summary for
-# ============================================================================
-# # TOTAL: 1
-# # PASS:  0
-# # SKIP:  0
-# # XFAIL: 0
-# # FAIL:  1
-# # XPASS: 0
-# # ERROR: 0
-if [[ $(uname) == Linux ]]; then
-  make check
-fi
-
+make check
 make install
