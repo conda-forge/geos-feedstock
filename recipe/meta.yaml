@@ -1,18 +1,16 @@
-{% set version = "3.5.1" %}
+{% set version = "3.6.0" %}
 
 package:
   name: geos
   version: {{ version }}
 
 source:
-  fn:  geos-{{ version }}.tar.gz
-  url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: 2215446cb734ecbcd487b53c27bfe373c3b3c36a897bdcf1fceab9adf84e10ee
-  patches:
-    - xmltester.cpp.patch  # [win]
+  fn:  geos-{{ version }}.tar.bz2
+  url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
+  sha256: 1fe7644f3240c8422b0143830ff142e44e8b01333c12f67681ccaab92142f2ea
 
 build:
-  number: 1
+  number: 0
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
