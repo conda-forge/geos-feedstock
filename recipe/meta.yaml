@@ -6,8 +6,8 @@ package:
 
 source:
   fn:  geos-{{ version }}.tar.bz2
-  url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
-  sha256: 1fe7644f3240c8422b0143830ff142e44e8b01333c12f67681ccaab92142f2ea
+  url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
+  sha256: 2382dd0d3c397b21398816568ff78270dedf08e15468d5b2aa0c0df9c34cc1e4
 
 build:
   number: 0
