@@ -5,8 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  svn_url: https://svn.osgeo.org/geos/tags/{{ version }}
-  svn_ignore_externals: True
+  fn:  geos-{{ version }}.tar.bz2  # [not win]
+  url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2  # [not win]
+  sha256: e6bb0a7ba0e142b1e952fae9d946b2b532fa05a5c384e458f7cb8990e1fcac32  # [not win]
+  svn_url: https://svn.osgeo.org/geos/tags/{{ version }}  # [win]
+  svn_ignore_externals: True  # [win]
 
 build:
   number: 0
@@ -20,8 +23,6 @@ requirements:
     - python  # [win]
     - msinttypes  # [win]
     - cmake  # [win]
-    - automake  # [not win]
-    - libtool  # [not win]
     - vc 9  # [win and py27]
     - vc 10  # [win and py34]
     - vc 14  # [win and py35]
