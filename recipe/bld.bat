@@ -1,6 +1,8 @@
 mkdir build
 cd build
 
+echo "#define GEOS_SVN_REVISION 4298" > geos_svn_revision.h
+
 :: Configure.
 cmake -G "NMake Makefiles" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^

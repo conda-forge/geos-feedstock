@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -f configure ]; then
+  autoreconf -i --force
+fi
+
 ARCH=""
 MACHINE_TYPE=$(uname -m)
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
