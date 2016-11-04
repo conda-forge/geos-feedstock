@@ -5,9 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  fn:  geos-{{ version }}.tar.gz
-  url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: 2215446cb734ecbcd487b53c27bfe373c3b3c36a897bdcf1fceab9adf84e10ee
+  svn_url: https://svn.osgeo.org/geos/tags/{{ version }}
+  svn_ignore_externals: True
 
 build:
   number: 0
