@@ -1,7 +1,7 @@
 mkdir build
 cd build
 
-echo "#define GEOS_SVN_REVISION 4298" > geos_svn_revision.h
+echo #define GEOS_SVN_REVISION 4298 > geos_svn_revision.h
 
 :: Configure.
 cmake -G "NMake Makefiles" ^
