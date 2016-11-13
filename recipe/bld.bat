@@ -25,4 +25,4 @@ if errorlevel 1 exit 1
 
 copy lib\*.exp %LIBRARY_LIB%\ || exit 1
 copy lib\*.lib %LIBRARY_LIB%\ || exit 1
-copy include\geos.h %LIBRARY_INC%\geos.h || exit 1
+copy ..\include\geos.h %LIBRARY_INC%\geos.h || exit 1
