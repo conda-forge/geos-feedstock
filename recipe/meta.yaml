@@ -8,6 +8,8 @@ source:
   fn:  geos-{{ version }}.tar.bz2
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
   sha256: 2382dd0d3c397b21398816568ff78270dedf08e15468d5b2aa0c0df9c34cc1e4
+  patches:
+    - xmltester.cpp.patch  # [win]
 
 build:
   number: 0

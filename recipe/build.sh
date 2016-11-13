@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mv $SRC_DIR/README.md $SRC_DIR/README
+
 if [ ! -f configure ]; then
   autoreconf -i --force
 fi
@@ -13,11 +15,11 @@ elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
 fi
 
 if [ $(uname) == Darwin ]; then
-    export CC=clang
-    export CXX=clang++
-    export MACOSX_DEPLOYMENT_TARGET="10.9"
-    export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
-    export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
+  export CC=clang
+  export CXX=clang++
+  export MACOSX_DEPLOYMENT_TARGET="10.9"
+  export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
+  export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
 fi
 
 
