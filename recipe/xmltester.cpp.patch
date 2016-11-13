@@ -1,0 +1,16 @@
+--- tests\xmltester\XMLTester.orig.cpp	2016-10-26 02:19:59.000000000 +1000
++++ tests\xmltester\XMLTester.cpp	2016-11-13 14:15:32.244247500 +1000
+@@ -292,6 +292,13 @@
+     return old_value;
+ }
+ 
++#if defined _MSC_VER && (_MSC_VER < 1900)
++double round(double number)
++{
++    return number < 0.0 ? ceil(number - 0.5) : floor(number + 0.5);
++}
++#endif
++
+ /*private*/
+ void
+ XMLTester::printTest(bool success, const std::string& expected_result, const std::string& actual_result, const util::Profile &prof)
