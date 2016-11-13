@@ -1,42 +1,53 @@
-{% set version = "3.4.2" %}
+{% set version = "3.5.1" %}
 
 package:
-    name: geos
-    version: {{ version }}
+  name: geos
+  version: {{ version }}
 
 source:
-    fn:  geos-{{ version }}.tar.bz2
-    url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
-    md5: fc5df2d926eb7e67f988a43a92683bae
-    patches:
-        - cmake.win.patch  # [win]
-        - lineintersector.patch  # [win and py35]
-        - wktwriter.patch  # [win and py35]
-        - bufferopp.patch  # [win and py35]
-        - offsetcurvebuilder.patch  # [win and py35]
-        - offsetcurvesetbuilder.patch  # [win and py35]
+  fn:  geos-{{ version }}.tar.gz
+  url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
+  sha256: 2215446cb734ecbcd487b53c27bfe373c3b3c36a897bdcf1fceab9adf84e10ee
 
 build:
-    number: 2
-    features:
-        - vc9  # [win and py27]
-        - vc10  # [win and py34]
-        - vc14  # [win and py35]
+  number: 0
+  features:
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py35]
 
 requirements:
-    build:
-        - python  # [win]
-        - msinttypes  # [win]
-        - toolchain
+  build:
+    - python  # [win]
+    - msinttypes  # [win]
+    - cmake  # [win]
+    - automake  # [not win]
+    - libtool  # [not win]
+    - vc 9  # [win and py27]
+    - vc 10  # [win and py34]
+    - vc 14  # [win and py35]
+  run:
+    - vc 9  # [win and py27]
+    - vc 10  # [win and py34]
+    - vc 14  # [win and py35]
 
 test:
-    commands:
-        - geos-config --version  # [not win]
+  commands:
+    - geos-config --version  # [not win]
+    #- conda inspect linkages -p $PREFIX geos  # [not win]
+    #- conda inspect objects -p $PREFIX geos  # [osx]
 
 about:
-    home: http://trac.osgeo.org/geos/
-    license: LGPLv2.1
-    summary: Geometry Engine - Open Source
+  home: http://trac.osgeo.org/geos/
+  license: LGPLv2.1
+  license_file: COPYING
+  summary: 'Geometry Engine - Open Source.'
+  description: |
+    GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
+    Suite (JTS). As such, it aims to contain the complete functionality of
+    JTS in C++.
+  doc_url: http://trac.osgeo.org/geos/
+  dev_url: https://github.com/libgeos/libgeos
 
 extra:
   recipe-maintainers:
