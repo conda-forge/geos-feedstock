@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mv $SRC_DIR/README.md $SRC_DIR/README
+
 if [ ! -f configure ]; then
   autoreconf -i --force
 fi
@@ -13,19 +15,18 @@ elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
 fi
 
 if [ $(uname) == Darwin ]; then
-    export CC=clang
-    export CXX=clang++
-    export MACOSX_DEPLOYMENT_TARGET="10.9"
-    export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
-    export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
+  export CC=clang
+  export CXX=clang++
+  export MACOSX_DEPLOYMENT_TARGET="10.9"
+  export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
+  export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
 fi
 
 
 ./configure --prefix=$PREFIX
 
 make
-
-# Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/172578575
+# Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/175667698
 # FAIL: geos_unit
 # ============================================================================
 # Testsuite summary for
