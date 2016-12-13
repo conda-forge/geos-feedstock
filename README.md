@@ -14,6 +14,18 @@ Suite (JTS). As such, it aims to contain the complete functionality of
 JTS in C++.
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/geos-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/geos-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/geos-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/geos-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/geos-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/geos-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/geos/badges/version.svg)](https://anaconda.org/conda-forge/geos)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/geos/badges/downloads.svg)](https://anaconda.org/conda-forge/geos)
+
 Installing geos
 ===============
 
@@ -34,7 +46,6 @@ It is possible to list all of the versions of `geos` available on your platform 
 ```
 conda search geos --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -70,18 +81,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/geos-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/geos-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/geos-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/geos-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/geos-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/geos-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/geos/badges/version.svg)](https://anaconda.org/conda-forge/geos)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/geos/badges/downloads.svg)](https://anaconda.org/conda-forge/geos)
 
 
 Updating geos-feedstock
