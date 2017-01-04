@@ -18,7 +18,7 @@ build:
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
-    - vc14  # [win and py35]
+    - vc14  # [win and py>=35]
 
 requirements:
   build:
@@ -29,17 +29,17 @@ requirements:
     - libtool  # [not win]
     - vc 9  # [win and py27]
     - vc 10  # [win and py34]
-    - vc 14  # [win and py35]
+    - vc 14  # [win and py>=35]
   run:
     - vc 9  # [win and py27]
     - vc 10  # [win and py34]
-    - vc 14  # [win and py35]
+    - vc 14  # [win and py>=35]
 
 test:
   commands:
     - geos-config --version  # [not win]
-    #- conda inspect linkages -p $PREFIX geos  # [not win]
-    #- conda inspect objects -p $PREFIX geos  # [osx]
+    - conda inspect linkages -p $PREFIX geos  # [not win]
+    - conda inspect objects -p $PREFIX geos  # [osx]
 
 about:
   home: http://trac.osgeo.org/geos/
