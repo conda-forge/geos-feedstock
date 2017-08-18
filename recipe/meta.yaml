@@ -14,26 +14,18 @@ source:
 
 build:
   number: 1
-  skip: True  # [win and py36]
-  features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py>=35]
+  run_exports:
+    # pretty poor backcompat.  SO name changes each release.
+    #   https://abi-laboratory.pro/tracker/timeline/geos/
+    - {{ pin_subpackage('geos', max_pin='x.x.x') }}
 
 requirements:
   build:
-    - python  # [win]
-    - msinttypes  # [win]
+    - msinttypes  # [win and vc<14]
     - cmake  # [win]
     - automake  # [not win]
     - libtool  # [not win]
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and py>=35]
-  run:
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and py>=35]
+    - {{ compiler('c') }}
 
 test:
   commands:
@@ -58,3 +50,4 @@ extra:
     - ocefpaf
     - pelson
     - gillins
+    - msarahan
