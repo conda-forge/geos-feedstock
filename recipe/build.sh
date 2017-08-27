@@ -16,18 +16,10 @@ elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
   ARCH="-m32"
 fi
 
-if [ $(uname) == Darwin ]; then
-  export CC=clang
-  export CXX=clang++
-  export MACOSX_DEPLOYMENT_TARGET="10.9"
-  export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
-  export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
-fi
-
-
 ./configure --prefix=$PREFIX
 
 make
+# See to be related to https://trac.osgeo.org/geos/ticket/299
 # Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/175667698
 # FAIL: geos_unit
 # ============================================================================
