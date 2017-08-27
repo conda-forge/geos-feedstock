@@ -49,6 +49,8 @@ install:
       conda config --set show_channel_urls true
       conda install --yes --quiet conda-forge-build-setup
       source run_conda_forge_build_setup
+      conda install conda-build=3 --yes
+    # conda config --add channels c3i_test --force --yes
 
 script:
   - conda build ./recipe

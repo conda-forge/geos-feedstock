@@ -56,6 +56,8 @@ install:
     # Configure the VM.
     - cmd: conda install -n root --quiet --yes conda-forge-build-setup
     - cmd: run_conda_forge_build_setup
+    - cmd: conda install conda-build=3 --yes
+    # - cmd: conda config --add channels c3i_test --force --yes
 
 # Skip .NET project specific build phase.
 build: off
