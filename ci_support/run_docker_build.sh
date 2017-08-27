@@ -58,7 +58,8 @@ conda install --yes --quiet conda-forge-build-setup
 source run_conda_forge_build_setup
 
 conda install conda-build=3 --yes
-# conda config --add channels c3i_test --force --yes
+conda config --add channels c3i_test --force
+conda info
 
 conda build /recipe_root --quiet || exit 1
 upload_or_check_non_existence /recipe_root conda-forge --channel=main || exit 1

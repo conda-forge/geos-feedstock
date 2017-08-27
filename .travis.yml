@@ -50,7 +50,8 @@ install:
       conda install --yes --quiet conda-forge-build-setup
       source run_conda_forge_build_setup
       conda install conda-build=3 --yes
-    # conda config --add channels c3i_test --force --yes
+      conda config --add channels c3i_test --force
+      conda info
 
 script:
   - conda build ./recipe
