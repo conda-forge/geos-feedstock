@@ -24,12 +24,11 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - msinttypes  # [win and vc<14]
     - cmake  # [win]
     - automake  # [not win]
     - libtool  # [not win]
-  run:
-    - {{ compiler('c') }}
 
 test:
   commands:
