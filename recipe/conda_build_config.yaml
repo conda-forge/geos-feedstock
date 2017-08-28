@@ -1,5 +1,3 @@
-blas_impl:
-  - openblas
 c_compiler:                    # [win]
   - vs2008                     # [win]
   - vs2015                     # [win]
