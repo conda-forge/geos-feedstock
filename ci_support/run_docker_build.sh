@@ -57,6 +57,7 @@ conda clean --lock
 conda install --yes --quiet conda-forge-build-setup
 source run_conda_forge_build_setup
 
+yum remove devtoolset-2-gcc devtoolset-2-gcc-c++ -y
 conda install conda-build=3 --yes
 conda config --add channels c3i_test --force
 conda info
