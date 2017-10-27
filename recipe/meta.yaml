@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
   sha256: e9ac89baab59dbb585c38f8b8449627d53b57ae79100d8bbca836907c0b6c27a
+  patches:
+    - xmltester.cpp.patch  # [win]
 
 build:
   number: 0
