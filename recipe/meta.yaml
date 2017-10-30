@@ -1,20 +1,20 @@
-{% set version = "3.6.0" %}
+{% set version = "3.6.2" %}
 
 package:
   name: geos
   version: {{ version }}
 
 source:
-  fn:  geos-{{ version }}.tar.bz2
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: 71f7257bcfe59b349efe47128c81efcb9a99e6e7f5bd70b65b0be2246ede09b6
+  sha256: e9ac89baab59dbb585c38f8b8449627d53b57ae79100d8bbca836907c0b6c27a
   patches:
     - xmltester.cpp.patch  # [win]
-    - GEOSGeom_createCollection.cpp.patch  # [win]
-    - GEOSSTRtreeTest.cpp.patch  # [win]
+    - DirectedEdgeStar_vc9.patch  # [win and py27]
+    - GEOSGeom_createCollection_vc9.patch  # [win and py27]
 
 build:
   number: 0
+  skip: True  # [win and py36]
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]

@@ -1,6 +1,6 @@
---- tests\xmltester\XMLTester.orig.cpp	2016-10-26 02:19:59.000000000 +1000
-+++ tests\xmltester\XMLTester.cpp	2016-11-13 14:15:32.244247500 +1000
-@@ -292,6 +292,13 @@
+--- geos-3.6.2.orig/tests/xmltester/XMLTester.cpp	2017-07-25 06:17:15.000000000 -0300
++++ geos-3.6.2/tests/xmltester/XMLTester.cpp	2017-10-26 18:56:27.377661886 -0300
+@@ -338,6 +338,13 @@
      return old_value;
  }
  
