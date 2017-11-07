@@ -13,7 +13,7 @@ source:
     - GEOSGeom_createCollection_vc9.patch  # [win and py27]
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and py36]
   features:
     - vc9  # [win and py27]
