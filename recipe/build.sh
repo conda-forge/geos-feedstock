@@ -6,8 +6,6 @@ if [ ! -f configure ]; then
   autoreconf -i --force
 fi
 
-export CFLAGS="-O2 -Wl,-S $CFLAGS"
-
 ARCH=""
 MACHINE_TYPE=$(uname -m)
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
@@ -16,6 +14,7 @@ elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
   ARCH="-m32"
 fi
 
+export CFLAGS="-O2 -Wl,-S $CFLAGS"
 ./configure --prefix=$PREFIX
 
 make -j${CPU_COUNT} ${VERBOSE_AT}
