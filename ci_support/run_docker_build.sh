@@ -59,8 +59,6 @@ source run_conda_forge_build_setup
 
 yum remove devtoolset-2-gcc devtoolset-2-gcc-c++ -y
 conda install conda-build=3 --yes
-conda config --add channels c3i_test --force
-conda info
 
 conda build /recipe_root --quiet || exit 1
 upload_or_check_non_existence /recipe_root conda-forge --channel=main || exit 1
