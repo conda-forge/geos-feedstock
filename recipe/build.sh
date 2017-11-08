@@ -6,6 +6,8 @@ if [ ! -f configure ]; then
   autoreconf -i --force
 fi
 
+export CFLAGS="-O2 -Wl,-S $CFLAGS"
+
 ARCH=""
 MACHINE_TYPE=$(uname -m)
 if [ ${MACHINE_TYPE} == 'x86_64' ]; then
