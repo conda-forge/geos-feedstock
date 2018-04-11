@@ -1,0 +1,11 @@
+c_compiler:
+- vs2015
+cxx_compiler:
+- vs2015
+geos:
+- 3.6.2
+target_platform:
+- win-32
+zip_keys:
+- - c_compiler
+  - cxx_compiler

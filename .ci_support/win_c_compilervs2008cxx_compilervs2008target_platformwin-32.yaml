@@ -1,0 +1,11 @@
+c_compiler:
+- vs2008
+cxx_compiler:
+- vs2008
+geos:
+- 3.6.2
+target_platform:
+- win-32
+zip_keys:
+- - c_compiler
+  - cxx_compiler

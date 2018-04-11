@@ -9,13 +9,13 @@ environment:
     secure: ipv/06DzgA7pzz2CIAtbPxZSsphDtF+JFyoWRnXkn3O8j7oRe3rzqj3LOoq2DZp4
 
   matrix:
-    - CONFIG: win_python2.7target_platformwin-32
+    - CONFIG: win_c_compilervs2008cxx_compilervs2008target_platformwin-32
 
-    - CONFIG: win_python2.7target_platformwin-64
+    - CONFIG: win_c_compilervs2008cxx_compilervs2008target_platformwin-64
 
-    - CONFIG: win_python3.5target_platformwin-32
+    - CONFIG: win_c_compilervs2015cxx_compilervs2015target_platformwin-32
 
-    - CONFIG: win_python3.5target_platformwin-64
+    - CONFIG: win_c_compilervs2015cxx_compilervs2015target_platformwin-64
 
 
 # We always use a 64-bit machine, but can build x86 distributions
