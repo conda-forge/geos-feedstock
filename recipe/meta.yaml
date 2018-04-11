@@ -9,8 +9,8 @@ source:
   sha256: e9ac89baab59dbb585c38f8b8449627d53b57ae79100d8bbca836907c0b6c27a
   patches:
     - xmltester.cpp.patch  # [win]
-    - DirectedEdgeStar_vc9.patch  # [win and py27]
-    - GEOSGeom_createCollection_vc9.patch  # [win and py27]
+    - DirectedEdgeStar_vc9.patch  # [win and vc==9]
+    - GEOSGeom_createCollection_vc9.patch  # [win and vc==9]
 
 build:
   number: 2
