@@ -31,8 +31,8 @@ requirements:
 test:
   commands:
     - geos-config --version  # [not win]
-    - conda inspect linkages -p $PREFIX geos  # [not win]
-    - conda inspect objects -p $PREFIX geos  # [osx]
+    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
+    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://trac.osgeo.org/geos/
