@@ -1,11 +1,12 @@
 c_compiler:
-- vs2015
+- vs2008
 cxx_compiler:
-- vs2015
+- vs2008
 geos:
 - 3.6.2
-target_platform:
-- win-32
+vc:
+- '9'
 zip_keys:
-- - c_compiler
+- - vc
+  - c_compiler
   - cxx_compiler
