@@ -16,18 +16,9 @@ elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
   ARCH="-m32"
 fi
 
-if [ $(uname) == Darwin ]; then
-  export CC=clang
-  export CXX=clang++
-  export MACOSX_DEPLOYMENT_TARGET="10.9"
-  export CXXFLAGS="-stdlib=libc++ $CXXFLAGS"
-  export CXXFLAGS="$CXXFLAGS -stdlib=libc++"
-fi
-
-
 ./configure --prefix=$PREFIX
 
-make
+make -j$CPU_COUNT
 # Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/175667698
 # FAIL: geos_unit
 # ============================================================================
@@ -50,6 +41,6 @@ make
 # make[1]: *** [check-recursive] Error 1
 # make: *** [check] Error 2
 if [[ $(uname) == Linux ]]; then
-    make check
+    make check -j$CPU_COUNT
 fi
-make install
+make install -j$CPU_COUNT
