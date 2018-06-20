@@ -4,25 +4,20 @@ cd build
 echo #define GEOS_SVN_REVISION 4298 > geos_svn_revision.h
 
 :: Configure.
-cmake -G "NMake Makefiles" ^
+cmake -G "%CMAKE_GENERATOR%" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-      -D CMAKE_BUILD_TYPE=Release ^
+      -D GEOS_BUILD_STATIC=OFF ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
 :: Build.
-nmake
-if errorlevel 1 exit 1
-
-:: Test.
-ctest
+cmake --build . --config Release
 if errorlevel 1 exit 1
 
 :: Install.
-nmake install
+cmake --build . --config Release --target install
 if errorlevel 1 exit 1
 
-
-copy lib\*.exp %LIBRARY_LIB%\ || exit 1
-copy lib\*.lib %LIBRARY_LIB%\ || exit 1
-copy ..\include\geos.h %LIBRARY_INC%\geos.h || exit 1
+:: Test.
+ctest -C Release
+if errorlevel 1 exit 1
