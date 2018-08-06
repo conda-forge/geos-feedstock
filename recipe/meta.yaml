@@ -1,4 +1,4 @@
-{% set version = "3.6.2" %}
+{% set version = "3.6.3" %}
 
 package:
   name: geos
@@ -6,14 +6,14 @@ package:
 
 source:
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: e9ac89baab59dbb585c38f8b8449627d53b57ae79100d8bbca836907c0b6c27a
+  sha256: 1f51069041c3df85b557f14c25c8fc3b31a1e25cdf05a13b480351a18f8da644
   patches:
     - xmltester.cpp.patch  # [win]
     - DirectedEdgeStar_vc9.patch  # [win and vc<14]
     - GEOSGeom_createCollection_vc9.patch  # [win and vc<14]
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
     # https://abi-laboratory.pro/tracker/timeline/geos/
