@@ -44,3 +44,6 @@ if [[ $(uname) == Linux ]]; then
     make check -j$CPU_COUNT
 fi
 make install -j$CPU_COUNT
+
+# We can remove this when we start using the new conda-build.
+find $PREFIX -name '*.la' -delete
