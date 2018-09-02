@@ -13,7 +13,7 @@ source:
     - GEOSGeom_createCollection_vc9.patch  # [win and vc<14]
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
     # https://abi-laboratory.pro/tracker/timeline/geos/
@@ -31,8 +31,6 @@ requirements:
 test:
   commands:
     - geos-config --version  # [not win]
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://trac.osgeo.org/geos/
