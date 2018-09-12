@@ -9,10 +9,10 @@ source:
   sha256: c4572cff40f52aad43bf3cccc3f81364f9e842f9b4b66ef23a28855037663f91
   patches:
     - xmltester.cpp.patch  # [win]
-    - DirectedEdgeStar_vc9.patch  # [win and vc<14]
 
 build:
   number: 0
+  skip: True  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
     # https://abi-laboratory.pro/tracker/timeline/geos/
