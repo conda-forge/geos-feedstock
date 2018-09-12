@@ -10,7 +10,6 @@ source:
   patches:
     - xmltester.cpp.patch  # [win]
     - DirectedEdgeStar_vc9.patch  # [win and vc<14]
-    - GEOSGeom_createCollection_vc9.patch  # [win and vc<14]
 
 build:
   number: 0
