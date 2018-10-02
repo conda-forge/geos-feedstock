@@ -11,7 +11,7 @@ source:
     - xmltester.cpp.patch  # [win]
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
