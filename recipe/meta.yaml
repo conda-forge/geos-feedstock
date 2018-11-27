@@ -1,4 +1,4 @@
-{% set version = "3.7.0" %}
+{% set version = "3.6.2" %}
 
 package:
   name: geos
@@ -6,21 +6,22 @@ package:
 
 source:
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: c4572cff40f52aad43bf3cccc3f81364f9e842f9b4b66ef23a28855037663f91
+  sha256: e9ac89baab59dbb585c38f8b8449627d53b57ae79100d8bbca836907c0b6c27a
   patches:
     - xmltester.cpp.patch  # [win]
+    - DirectedEdgeStar_vc9.patch  # [win and py27]
+    - GEOSGeom_createCollection_vc9.patch  # [win and py27]
 
 build:
-  number: 1000
-  skip: True  # [win and vc<14]
+  number: 1004
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
-    # https://abi-laboratory.pro/tracker/timeline/geos/
+    #   https://abi-laboratory.pro/tracker/timeline/geos/
     - {{ pin_subpackage('geos', max_pin='x.x.x') }}
 
 requirements:
   build:
-    - msinttypes  # [win]
+    - msinttypes  # [win and vc<14]
     - cmake  # [win]
     - automake  # [not win]
     - libtool  # [not win]
@@ -35,7 +36,7 @@ about:
   home: http://trac.osgeo.org/geos/
   license: LGPLv2.1
   license_file: COPYING
-  summary: 'Geometry Engine - Open Source.'
+  summary: 'Geometry Engine - Open Source'
   description: |
     GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
     Suite (JTS). As such, it aims to contain the complete functionality of
