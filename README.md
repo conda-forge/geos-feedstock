@@ -7,7 +7,7 @@ Package license: LGPLv2.1
 
 Feedstock license: BSD 3-Clause
 
-Summary: Geometry Engine - Open Source.
+Summary: Geometry Engine - Open Source
 
 GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
 Suite (JTS). As such, it aims to contain the complete functionality of
