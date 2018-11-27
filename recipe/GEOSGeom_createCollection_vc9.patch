@@ -1,0 +1,11 @@
+--- "tests\\unit\\capi\\GEOSGeom_createCollection.cpp.orig"	2017-10-30 10:31:11.985046900 +1000
++++ "tests\\unit\\capi\\GEOSGeom_createCollection.cpp"	2017-10-30 10:34:00.145147300 +1000
+@@ -106,7 +106,7 @@
+         geoms.push_back(GEOSGeom_createEmptyPoint_r(handle_));
+         // takes ownership of individual geometries
+         geom_ = GEOSGeom_createCollection_r(handle_, GEOS_MULTIPOINT,
+-            geoms.data(), static_cast<int>(geoms.size()));
++            &geoms[0], static_cast<int>(geoms.size()));
+         ensure_equals(GEOSGetNumGeometries_r(handle_, geom_), geoms.size());
+     }
+ 
