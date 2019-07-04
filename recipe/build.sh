@@ -1,12 +1,12 @@
 #!/bin/bash
 
-mv $SRC_DIR/README.md $SRC_DIR/README
+mv ${SRC_DIR}/README.md ${SRC_DIR}/README
 
 if [ ! -f configure ]; then
   autoreconf -i --force
 fi
 
-export CFLAGS="-O2 -Wl,-S $CFLAGS"
+export CFLAGS="-O2 -Wl,-S ${CFLAGS}"
 
 ARCH=""
 MACHINE_TYPE=$(uname -m)
@@ -16,9 +16,9 @@ elif [ ${MACHINE_TYPE} == 'x86_32' ]; then
   ARCH="-m32"
 fi
 
-./configure --prefix=$PREFIX
+./configure --prefix=${PREFIX} --enable-static=no
 
-make -j$CPU_COUNT
+make -j${CPU_COUNT}
 # Failing on OS X: https://travis-ci.org/conda-forge/geos-feedstock/builds/175667698
 # FAIL: geos_unit
 # ============================================================================
@@ -41,9 +41,6 @@ make -j$CPU_COUNT
 # make[1]: *** [check-recursive] Error 1
 # make: *** [check] Error 2
 if [[ $(uname) == Linux ]]; then
-    make check -j$CPU_COUNT
+    make check -j${CPU_COUNT}
 fi
-make install -j$CPU_COUNT
-
-# We can remove this when we start using the new conda-build.
-find $PREFIX -name '*.la' -delete
+make install -j${CPU_COUNT}
