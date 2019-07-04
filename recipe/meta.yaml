@@ -11,7 +11,7 @@ source:
     - xmltester.cpp.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -33,9 +33,9 @@ test:
 
 about:
   home: http://trac.osgeo.org/geos/
-  license: LGPLv2.1
+  license: LGPL-2.1
   license_file: COPYING
-  summary: 'Geometry Engine - Open Source.'
+  summary: 'Geometry Engine - Open Source'
   description: |
     GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
     Suite (JTS). As such, it aims to contain the complete functionality of
