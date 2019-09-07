@@ -4,7 +4,7 @@ cd build
 echo #define GEOS_SVN_REVISION 4298 > geos_svn_revision.h
 
 :: Configure.
-cmake -G "%CMAKE_GENERATOR%" ^
+cmake -G "NMake Makefiles" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D GEOS_BUILD_STATIC=OFF ^
       %SRC_DIR%
