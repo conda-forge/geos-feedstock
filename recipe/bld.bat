@@ -7,6 +7,7 @@ echo #define GEOS_SVN_REVISION 4298 > geos_svn_revision.h
 cmake -G "NMake Makefiles" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D GEOS_BUILD_STATIC=OFF ^
+      -D CMAKE_BUILD_TYPE=Release ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
