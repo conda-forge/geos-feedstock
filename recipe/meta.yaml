@@ -1,4 +1,4 @@
-{% set version = "3.7.2" %}
+{% set version = "3.7.3" %}
 
 package:
   name: geos
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: 5613cd9bb5194d88481cf0a42545933313520be7e0a690c8f25f92c969147816
+  sha256: 3cf7c15e6bbc5f32602bfef0748bfe0e1098e55289e8b75f975bcda546d3e20b
   patches:
     - xmltester.cpp.patch  # [win]
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
