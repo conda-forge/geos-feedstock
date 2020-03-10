@@ -6,7 +6,7 @@ if [ ! -f configure ]; then
   autoreconf -i --force
 fi
 
-export CFLAGS="-O2 -Wl,-S ${CFLAGS}"
+export CXXFLAGS="-O2 -Wl,-S ${CXXFLAGS}"
 
 ARCH=""
 MACHINE_TYPE=$(uname -m)
