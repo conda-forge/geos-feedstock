@@ -5,9 +5,13 @@ Home: http://trac.osgeo.org/geos/
 
 Package license: LGPL-2.1
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geos-feedstock/blob/master/LICENSE.txt)
 
 Summary: Geometry Engine - Open Source
+
+Development: https://github.com/libgeos/libgeos
+
+Documentation: http://trac.osgeo.org/geos/
 
 GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
 Suite (JTS). As such, it aims to contain the complete functionality of
