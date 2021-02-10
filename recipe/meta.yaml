@@ -1,4 +1,4 @@
-{% set version = "3.9.0" %}
+{% set version = "3.9.1" %}
 
 package:
   name: geos
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: 1a29224d51dd1515d096749263e0c4c3141d0383ad4ddf8b106d8bbf359fc4b6
+  sha256: e9e20e83572645ac2af0af523b40a404627ce74b3ec99727754391cdf5b23645
   patches:
     - xmltester.cpp.patch  # [win]
 
