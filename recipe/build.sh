@@ -41,6 +41,8 @@ make -j${CPU_COUNT}
 # make[1]: *** [check-recursive] Error 1
 # make: *** [check] Error 2
 if [[ $(uname) == Linux ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
     make check -j${CPU_COUNT}
+fi
 fi
 make install -j${CPU_COUNT}
