@@ -20,7 +20,6 @@ build:
 
 requirements:
   build:
-    - msinttypes  # [win]
     - cmake  # [win]
     - ninja  # [win]
     - automake  # [not win]
