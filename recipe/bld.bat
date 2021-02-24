@@ -2,7 +2,7 @@ mkdir build
 cd build
 
 :: Configure.
-cmake -G "NMake Makefiles" ^
+cmake -G "Ninja" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D BUILD_SHARED_LIBS=ON ^
       -D CMAKE_BUILD_TYPE=Release ^
@@ -10,13 +10,13 @@ cmake -G "NMake Makefiles" ^
 if errorlevel 1 exit 1
 
 :: Build.
-cmake --build . --config Release
+ninja
 if errorlevel 1 exit 1
 
 :: Install.
-cmake --build . --config Release --target install
+ninja install
 if errorlevel 1 exit 1
 
 :: Test.
-ctest -C Release
+ctest -V --output-on-failure
 if errorlevel 1 exit 1
