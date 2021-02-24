@@ -11,7 +11,7 @@ source:
     - xmltester.cpp.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -20,8 +20,8 @@ build:
 
 requirements:
   build:
-    - msinttypes  # [win]
     - cmake  # [win]
+    - ninja  # [win]
     - automake  # [not win]
     - libtool  # [not win]
     - {{ compiler('c') }}
