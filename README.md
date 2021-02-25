@@ -1,17 +1,17 @@
 About geos
 ==========
 
-Home: http://trac.osgeo.org/geos/
+Home: https://trac.osgeo.org/geos/
 
-Package license: LGPL-2.1
+Package license: LGPL-2.1-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geos-feedstock/blob/master/LICENSE.txt)
 
 Summary: Geometry Engine - Open Source
 
-Development: https://github.com/libgeos/libgeos
+Development: https://git.osgeo.org/gitea/geos/geos
 
-Documentation: http://trac.osgeo.org/geos/
+Documentation: https://trac.osgeo.org/geos/
 
 GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
 Suite (JTS). As such, it aims to contain the complete functionality of
@@ -155,9 +155,9 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
@@ -165,6 +165,7 @@ Feedstock Maintainers
 
 * [@gillins](https://github.com/gillins/)
 * [@msarahan](https://github.com/msarahan/)
+* [@mwtoews](https://github.com/mwtoews/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@pelson](https://github.com/pelson/)
 * [@xylar](https://github.com/xylar/)
