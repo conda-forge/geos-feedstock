@@ -5,13 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/libgeos/libgeos/archive/{{ version }}.tar.gz
-  sha256: e9e20e83572645ac2af0af523b40a404627ce74b3ec99727754391cdf5b23645
-  patches:
-    - xmltester.cpp.patch  # [win]
+  url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
+  sha256: 7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
