@@ -22,6 +22,7 @@ requirements:
     - ninja  # [win]
     - automake  # [not win]
     - libtool  # [not win]
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
