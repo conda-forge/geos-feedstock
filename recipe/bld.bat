@@ -18,5 +18,5 @@ ninja install
 if errorlevel 1 exit 1
 
 :: Test.
-ctest -V --output-on-failure
+ctest --output-on-failure
 if errorlevel 1 exit 1
