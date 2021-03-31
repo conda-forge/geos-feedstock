@@ -9,7 +9,7 @@ source:
   sha256: 7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -18,11 +18,9 @@ build:
 
 requirements:
   build:
-    - cmake  # [win]
+    - cmake
+    - make  # [not win]
     - ninja  # [win]
-    - automake  # [not win]
-    - libtool  # [not win]
-    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
