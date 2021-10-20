@@ -18,7 +18,6 @@ Suite (JTS). As such, it aims to contain the complete functionality of
 JTS in C++.
 
 
-
 Current build status
 ====================
 
@@ -107,6 +106,7 @@ Installing `geos` from the `conda-forge` channel can be achieved by adding `cond
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `geos` can be installed with:
