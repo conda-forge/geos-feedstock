@@ -18,19 +18,11 @@ Suite (JTS). As such, it aims to contain the complete functionality of
 JTS in C++.
 
 
-
 Current build status
 ====================
 
 
-<table><tr>
-    <td>Drone</td>
-    <td>
-      <a href="https://cloud.drone.io/conda-forge/geos-feedstock">
-        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/geos-feedstock/master.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -107,6 +99,7 @@ Installing `geos` from the `conda-forge` channel can be achieved by adding `cond
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `geos` can be installed with:

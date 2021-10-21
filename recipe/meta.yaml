@@ -1,4 +1,4 @@
-{% set version = "3.9.1" %}
+{% set version = "3.10.0" %}
 
 package:
   name: geos
@@ -6,10 +6,10 @@ package:
 
 source:
   url: http://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
-  sha256: 7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a
+  sha256: 097d70e3c8f688e59633ceb8d38ad5c9b0d7ead5729adeb925dbc489437abe13
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -18,11 +18,9 @@ build:
 
 requirements:
   build:
-    - cmake  # [win]
+    - cmake
+    - make  # [not win]
     - ninja  # [win]
-    - automake  # [not win]
-    - libtool  # [not win]
-    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
