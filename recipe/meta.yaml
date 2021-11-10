@@ -9,7 +9,7 @@ source:
   sha256: a8148eec9636814c8ab0f8f5266ce6f9b914ed65b0d083fc43bb0bbb01f83648
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -42,6 +42,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - akrherz
     - ocefpaf
     - pelson
     - gillins
