@@ -9,7 +9,7 @@ source:
   sha256: a8148eec9636814c8ab0f8f5266ce6f9b914ed65b0d083fc43bb0bbb01f83648
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -29,16 +29,17 @@ test:
     - geos-config --version  # [not win]
 
 about:
-  home: https://trac.osgeo.org/geos/
+  home: https://libgeos.org/
   license: LGPL-2.1-only
   license_file: COPYING
-  summary: Geometry Engine - Open Source
+  summary: Geometry Engine, Open Source
   description: |
-    GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
-    Suite (JTS). As such, it aims to contain the complete functionality of
-    JTS in C++.
-  doc_url: https://trac.osgeo.org/geos/
-  dev_url: https://git.osgeo.org/gitea/geos/geos
+    GEOS is a C++ library for performing operations on two-dimensional vector
+    geometries. It is primarily a port of the JTS Topology Suite Java library.
+    It provides many of the algorithms used by PostGIS, the Shapely package
+    for Python, the sf package for R, and others.
+  doc_url: https://libgeos.org/
+  dev_url: https://github.com/libgeos/geos
 
 extra:
   recipe-maintainers:
