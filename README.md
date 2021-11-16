@@ -1,21 +1,22 @@
 About geos
 ==========
 
-Home: https://trac.osgeo.org/geos/
+Home: https://libgeos.org/
 
 Package license: LGPL-2.1-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geos-feedstock/blob/master/LICENSE.txt)
 
-Summary: Geometry Engine - Open Source
+Summary: Geometry Engine, Open Source
 
-Development: https://git.osgeo.org/gitea/geos/geos
+Development: https://github.com/libgeos/geos
 
-Documentation: https://trac.osgeo.org/geos/
+Documentation: https://libgeos.org/
 
-GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology
-Suite (JTS). As such, it aims to contain the complete functionality of
-JTS in C++.
+GEOS is a C++ library for performing operations on two-dimensional vector
+geometries. It is primarily a port of the JTS Topology Suite Java library.
+It provides many of the algorithms used by PostGIS, the Shapely package
+for Python, the sf package for R, and others.
 
 
 Current build status
@@ -118,7 +119,8 @@ conda search geos --channel conda-forge
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
