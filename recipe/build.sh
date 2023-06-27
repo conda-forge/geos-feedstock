@@ -11,8 +11,13 @@ cmake ${CMAKE_ARGS} \
 
 make -j${CPU_COUNT} ${VERBOSE_CM}
 
+if [[ "${BUILD_PLATFORM}" = "osx-64" ]]; then
+    # See https://github.com/libgeos/geos/issues/930
+    CTEST_EXCLUDE=unit-geom-Envelope
+fi
+
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
-    ctest --output-on-failure
+    ctest --output-on-failure -E ${CTEST_EXCLUDE}
 fi
 
 make install -j${CPU_COUNT}
