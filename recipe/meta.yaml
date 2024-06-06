@@ -1,4 +1,4 @@
-{% set version = "3.12.1" %}
+{% set version = "3.12.2" %}
 
 package:
   name: geos
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
-  sha256: d6ea7e492224b51193e8244fe3ec17c4d44d0777f3c32ca4fb171140549a0d03
+  sha256: 34c7770bf0090ee88488af98767d08e779f124fa33437e0aabec8abd4609fec6
 
 build:
   number: 0
@@ -22,6 +22,7 @@ requirements:
     - make  # [not win]
     - ninja  # [win]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
 
 test:
