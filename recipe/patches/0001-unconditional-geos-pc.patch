@@ -1,0 +1,25 @@
+From c2b6d053174ab6a90992b7762e4dfd8246dd845c Mon Sep 17 00:00:00 2001
+From: Mervin Fansler <mervin.fansler@bric.ku.dk>
+Date: Tue, 23 Jul 2024 13:28:35 +0200
+Subject: [PATCH] unconditional geos pc
+
+---
+ tools/CMakeLists.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/tools/CMakeLists.txt b/tools/CMakeLists.txt
+index a8c034fb27..254902154f 100644
+--- a/tools/CMakeLists.txt
++++ b/tools/CMakeLists.txt
+@@ -77,10 +77,8 @@ function(configure_install_geos_pc)
+     DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+ endfunction()
+ 
+-if(NOT MSVC)
+-  configure_install_geos_config()
+-  configure_install_geos_pc()
+-endif()
++configure_install_geos_config()
++configure_install_geos_pc()
+ 
+ option(BUILD_ASTYLE "Build astyle (Artistic Style) tool" OFF)
