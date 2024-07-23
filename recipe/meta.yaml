@@ -7,6 +7,8 @@ package:
 source:
   url: https://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
   sha256: 34c7770bf0090ee88488af98767d08e779f124fa33437e0aabec8abd4609fec6
+  patches:
+    - patches/0001-unconditional-geos-pc.patch
 
 build:
   number: 0
