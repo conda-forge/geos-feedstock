@@ -17,6 +17,9 @@ if [[ "${OSX_ARCH}" = "x86_64" ]]; then
 fi
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
+    which ctest
+    ctest --version
+    ctest --help
     ctest --output-on-failure --exclude-regex ${CTEST_EXCLUDE}
 fi
 
