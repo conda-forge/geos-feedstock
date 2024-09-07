@@ -30,6 +30,8 @@ requirements:
 test:
   commands:
     - geos-config --version  # [not win]
+    - geosop --help
+    - geosop -a "POINT (0 0)" buffer 1
 
 about:
   home: https://libgeos.org/
