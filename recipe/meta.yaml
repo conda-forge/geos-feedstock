@@ -11,7 +11,7 @@ source:
     - patches/0001-unconditional-geos-pc.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     # pretty poor backcompat.  SO name changes each release.
@@ -30,6 +30,8 @@ requirements:
 test:
   commands:
     - geos-config --version  # [not win]
+    - geosop --help
+    - geosop -a "POINT (0 0)" buffer 1
 
 about:
   home: https://libgeos.org/
