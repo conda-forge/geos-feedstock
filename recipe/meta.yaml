@@ -1,4 +1,4 @@
-{% set version = "3.13.1" %}
+{% set version = "3.10.4" %}
 
 package:
   name: geos
@@ -6,17 +6,12 @@ package:
 
 source:
   url: https://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
-  sha256: df2c50503295f325e7c8d7b783aca8ba4773919cde984193850cf9e361dfd28c
+  sha256: d6fc11bcfd265cbf2714199174e4c3392d657551e5fd84c74c07c863b29357e3
   patches:
     - patches/0001-unconditional-geos-pc.patch
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
-  run_exports:
-    # pretty poor backcompat.  SO name changes each release.
-    # https://abi-laboratory.pro/tracker/timeline/geos/
-    - {{ pin_subpackage('geos', max_pin='x.x.x') }}
 
 requirements:
   build:
