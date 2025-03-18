@@ -12,6 +12,10 @@ source:
 
 build:
   number: 0
+  run_exports:
+    # pretty poor backcompat.  SO name changes each release.
+    # https://abi-laboratory.pro/tracker/timeline/geos/
+    - {{ pin_subpackage('geos', max_pin='x.x.x') }}
 
 requirements:
   build:
