@@ -12,5 +12,3 @@ geos:
 - 3.13.0
 target_platform:
 - win-64
-vc:
-- '14'
