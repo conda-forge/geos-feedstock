@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ "${OSX_ARCH}" = "x86_64" ]]; then
+    # allow newer C++ symbols
+    # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
+    export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
+
 mkdir -p build && cd build
 
 cmake ${CMAKE_ARGS} \
