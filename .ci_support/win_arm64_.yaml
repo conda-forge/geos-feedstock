@@ -11,6 +11,6 @@ cxx_compiler:
 geos:
 - 3.14.1
 target_platform:
-- win-64
+- win-arm64
 vc:
 - '14'
