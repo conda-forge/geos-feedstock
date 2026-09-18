@@ -18,7 +18,6 @@ geometries. It is primarily a port of the JTS Topology Suite Java library.
 It provides many of the algorithms used by PostGIS, the Shapely package
 for Python, the sf package for R, and others.
 
-
 Current build status
 ====================
 

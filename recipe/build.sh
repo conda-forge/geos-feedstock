@@ -6,16 +6,14 @@ if [[ "${OSX_ARCH}" = "x86_64" ]]; then
     export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 fi
 
-mkdir -p build && cd build
-
+# Note that CMAKE_ARGS defines: CMAKE_BUILD_TYPE, CMAKE_INSTALL_PREFIX, CMAKE_INSTALL_LIBDIR, etc.
 cmake ${CMAKE_ARGS} \
-      -D CMAKE_BUILD_TYPE=Release \
-      -D CMAKE_INSTALL_PREFIX=${PREFIX} \
-      -D CMAKE_INSTALL_LIBDIR=lib \
+      -G Ninja \
       -D BUILD_SHARED_LIBS=ON \
-      ${SRC_DIR}
+      -D BUILD_TESTING=ON \
+      -S ${SRC_DIR} -B build
 
-make -j${CPU_COUNT} ${VERBOSE_CM}
+cmake --build build
 
 CTEST_EXCLUDE=""
 if [[ "${OSX_ARCH}" = "x86_64" ]]; then
@@ -24,7 +22,7 @@ if [[ "${OSX_ARCH}" = "x86_64" ]]; then
 fi
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
-    ctest --output-on-failure ${CTEST_EXCLUDE}
+    (cd build && ctest --output-on-failure ${CTEST_EXCLUDE})
 fi
 
-make install -j${CPU_COUNT}
+cmake --install build

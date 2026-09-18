@@ -1,40 +1,41 @@
-{% set version = "3.15.0" %}
+schema_version: 1
+
+context:
+  version: "3.15.0"
 
 package:
   name: geos
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: https://download.osgeo.org/geos/geos-{{ version }}.tar.bz2
+  url: https://download.osgeo.org/geos/geos-${{ version }}.tar.bz2
   sha256: d5e5192a686d065eaed082de14dd26244c5c8e02bff16b2c6cce3265f648e00e
   patches:
     - patches/0001-unconditional-geos-pc.patch
 
 build:
-  number: 0
-  skip: true  # [win and vc<14]
-  run_exports:
-    # pretty poor backcompat.  SO name changes each release.
-    # https://abi-laboratory.pro/tracker/timeline/geos/
-    - {{ pin_subpackage('geos', max_pin='x.x.x') }}
+  number: 1
 
 requirements:
   build:
     - cmake
-    - make  # [not win]
-    - ninja  # [win]
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
+    - ninja
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+  run_exports:
+    # pretty poor backcompat.  SO name changes each release.
+    # https://abi-laboratory.pro/?view=timeline&l=geos
+    - ${{ pin_subpackage('geos', upper_bound='x.x.x') }}
 
-test:
-  commands:
-    - geos-config --version  # [not win]
-    - geosop --help
-    - geosop -a "POINT (0 0)" buffer 1
+tests:
+  - script:
+      - if: not win
+        then: geos-config --version
+      - geosop --help
+      - geosop -a "POINT (0 0)" buffer 1
 
 about:
-  home: https://libgeos.org/
   license: LGPL-2.1-only
   license_file: COPYING
   summary: Geometry Engine, Open Source
@@ -43,8 +44,8 @@ about:
     geometries. It is primarily a port of the JTS Topology Suite Java library.
     It provides many of the algorithms used by PostGIS, the Shapely package
     for Python, the sf package for R, and others.
-  doc_url: https://libgeos.org/
-  dev_url: https://github.com/libgeos/geos
+  homepage: https://libgeos.org/
+  repository: https://github.com/libgeos/geos
 
 extra:
   recipe-maintainers:
