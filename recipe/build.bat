@@ -12,10 +12,8 @@ cmake --build build
 if errorlevel 1 exit 1
 
 :: Test.
-cd build
-ctest --output-on-failure
+ctest --test-dir build --output-on-failure
 if errorlevel 1 exit 1
-cd ..
 
 :: Install.
 cmake --install build

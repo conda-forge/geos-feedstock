@@ -15,14 +15,8 @@ cmake ${CMAKE_ARGS} \
 
 cmake --build build
 
-CTEST_EXCLUDE=""
-if [[ "${OSX_ARCH}" = "x86_64" ]]; then
-    # See https://github.com/libgeos/geos/issues/930
-    CTEST_EXCLUDE="--exclude-regex unit-geom-Envelope"
-fi
-
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
-    (cd build && ctest --output-on-failure ${CTEST_EXCLUDE})
+    ctest --test-dir build --output-on-failure
 fi
 
 cmake --install build
